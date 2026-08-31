@@ -1,0 +1,63 @@
+document.addEventListener('DOMContentLoaded', () => {
+    const grid = document.querySelector('.images');
+    const caption = document.querySelector('.hover-caption');
+    const nextBtn = document.getElementById('nxt-btn');
+    const rows = document.querySelectorAll('.grid-row');
+    let currentRowIndex = 0;
+
+    if (!grid || !caption) return;
+
+    const unlockAudio = () => {
+        const allSounds = document.querySelectorAll('audio');
+        allSounds.forEach(sound => {
+            sound.play().then(() => {
+                sound.pause();
+                sound.currentTime = 0;
+            }).catch(() => {});
+        });
+        document.removeEventListener('click', unlockAudio);
+    };
+    document.addEventListener('click', unlockAudio);
+
+    if (nextBtn && rows.length > 0) {
+        nextBtn.addEventListener('click', () => {
+            caption.classList.remove('visible');
+            rows[currentRowIndex].classList.remove('active');
+            currentRowIndex = (currentRowIndex + 1) % rows.length;
+            rows[currentRowIndex].classList.add('active');
+        });
+    }
+
+    grid.addEventListener('mouseover', (e) => {
+        if (e.target && e.target.tagName === 'IMG') {
+            caption.textContent = e.target.alt;
+            
+            const rowContainer = e.target.parentElement;
+            const imgLeft = e.target.offsetLeft + rowContainer.offsetLeft;
+            const imgTop = e.target.offsetTop + rowContainer.offsetTop;
+            const imgWidth = e.target.offsetWidth;
+            const imgHeight = e.target.offsetHeight;
+
+            caption.style.left = `${imgLeft + (imgWidth / 2)}px`;
+            caption.style.top = `${imgTop + imgHeight - 15}px`;
+            caption.classList.add('visible');
+
+            const activeSound = document.getElementById(`${e.target.id}-sound`);
+            if (activeSound) {
+                activeSound.currentTime = 0;
+                activeSound.play().catch(() => {});
+            }
+        }
+    });
+
+    grid.addEventListener('mouseout', (e) => {
+        if (e.target && e.target.tagName === 'IMG') {
+            caption.classList.remove('visible');
+            
+            const activeSound = document.getElementById(`${e.target.id}-sound`);
+            if (activeSound) {
+                activeSound.pause();
+            }
+        }
+    });
+});
