@@ -1394,3 +1394,92 @@ footer {
 .showroom > canvas {
     z-index: 1;
 }
+
+/* ================================
+   SCROLL REVEAL
+================================ */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(60px);
+    transition:
+        opacity 0.9s ease,
+        transform 0.9s ease;
+}
+
+.reveal.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.reveal-left {
+    opacity: 0;
+    transform: translateX(-70px);
+    transition:
+        opacity 0.9s ease,
+        transform 0.9s ease;
+}
+
+.reveal-left.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.reveal-right {
+    opacity: 0;
+    transform: translateX(70px);
+    transition:
+        opacity 0.9s ease,
+        transform 0.9s ease;
+}
+
+.reveal-right.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.car-card:nth-child(1) {
+    transition-delay: 0.05s;
+}
+
+.car-card:nth-child(2) {
+    transition-delay: 0.15s;
+}
+
+.car-card:nth-child(3) {
+    transition-delay: 0.25s;
+}
+
+.car-card:nth-child(4) {
+    transition-delay: 0.35s;
+}
+
+.car-card:nth-child(5) {
+    transition-delay: 0.45s;
+}
+
+.car-card:nth-child(6) {
+    transition-delay: 0.55s;
+}
+
+.culture-feature {
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
+}
+
+.culture-feature:nth-child(2) {
+    transition-delay: 0.1s;
+}
+
+.culture-feature:nth-child(3) {
+    transition-delay: 0.2s;
+}
+
+.culture-feature:nth-child(4) {
+    transition-delay: 0.3s;
+}
+
+.culture-feature:nth-child(5) {
+    transition-delay: 0.4s;
+}

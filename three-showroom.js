@@ -201,6 +201,23 @@ document.addEventListener(
    ANIMATION
 ========================= */
 
+let scrollRotation = 0;
+let scrollMovement = 0;
+
+window.addEventListener(
+    "scroll",
+    () => {
+
+        scrollRotation =
+            window.scrollY * 0.0015;
+
+        scrollMovement =
+            window.scrollY * 0.0008;
+
+    }
+);
+
+
 function animate() {
 
     requestAnimationFrame(
@@ -209,9 +226,15 @@ function animate() {
 
     if (porsche) {
 
+        /* Mouse movement */
+
+        const targetRotation =
+            mouseX * 0.8 +
+            scrollRotation;
+
         porsche.rotation.y +=
             (
-                mouseX * 0.8 -
+                targetRotation -
                 porsche.rotation.y
             ) * 0.03;
 
@@ -221,11 +244,22 @@ function animate() {
                 porsche.rotation.x
             ) * 0.02;
 
+
+        /* Floating */
+
         porsche.position.y =
             -0.7 +
             Math.sin(
                 Date.now() * 0.001
             ) * 0.04;
+
+
+        /* Small scroll movement */
+
+        porsche.position.x =
+            Math.sin(
+                scrollMovement
+            ) * 0.35;
     }
 
     renderer.render(
