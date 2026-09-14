@@ -1515,3 +1515,65 @@ body::before {
     }
 
 }
+
+/* =========================
+   SPECULAR BUTTON EFFECT
+========================= */
+
+.neo-button {
+    position: relative;
+    overflow: hidden;
+
+    isolation: isolate;
+}
+
+.neo-button::before {
+    content: "";
+
+    position: absolute;
+
+    width: 120px;
+    height: 120px;
+
+    left: var(--specular-x, 50%);
+    top: var(--specular-y, 50%);
+
+    transform:
+        translate(-50%, -50%)
+        scale(0);
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,255,255,0.28) 0%,
+            rgba(255,255,255,0.10) 25%,
+            transparent 70%
+        );
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition:
+        transform 0.45s ease,
+        opacity 0.45s ease;
+}
+
+.neo-button:hover::before {
+    transform:
+        translate(-50%, -50%)
+        scale(1.5);
+
+    opacity: 1;
+}
+
+.neo-button:active {
+    transform: translateY(-1px) scale(0.98);
+}
+
+.neo-button span,
+.neo-button {
+    z-index: 1;
+}
