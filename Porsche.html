@@ -1,66 +1,393 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Porsche</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/png" href="favicon.png">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Porsche | 2026 Collection</title>
+
+    <link rel="stylesheet"
+          href="style.css">
+
+    <link rel="icon"
+          type="image/png"
+          href="favicon.png">
+
 </head>
+
+
 <body>
-    <div class="image-container">
-        <img id="headerpic" src="porsche1.jpg" alt="Grayscale photo of car on road">
-   
-        <div class="overlay-text">
-            <h1 class="main-title">Porsche Showroom</h1>
-            <p class="sub-title">Innovation and Aesthetic combined</p>
-        </div>
+
+
+<!-- ================= NAVBAR ================= -->
+
+<nav class="navbar">
+
+    <a href="index.html"
+       class="logo">
+        PORSCHE
+    </a>
+
+
+    <div class="nav-links">
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="index.html#heritage">
+            Heritage
+        </a>
+
+        <a href="Porsche.html"
+           class="active">
+            Showroom
+        </a>
+
+        <a href="#collection">
+            Collection
+        </a>
+
+        <a href="index.html#contact">
+            Contact
+        </a>
+
     </div>
 
-    <br><br>
+</nav>
 
-    <div class="Headeraft glass-container">
-        <div class="articles">
-            <h1 class="HeaderTitle"><b>The 2026 Collection</b></h1>
-        </div>
 
-        <div class="gallery">
-            <div class="images">
-                <div class="grid-row active">
-                    <a href="2026Collection/911.html"> <img id="p1" src="gallery/p1.jpeg" alt="2026 Porsche 911"></a>
-                    <a href="2026Collection/718.html"><img id="p2" src="gallery/p2.png" alt="2026 Porsche 718 Cayman"></a>
-                    <a href="2026Collection/taycan.html"> <img id="p3" src="gallery/p3.png" alt="2026 Porsche Taycan"></a>
-                </div>
-                <div class="grid-row">
-                    <a href="2026Collection/panamera.html"><img id="p4" src="gallery/p4.png" alt="2026 Porsche Panamera"></a>
-                    <a href="2026Collection/cayenne.html"> <img id="p5" src="gallery/p5.png" alt="2026 Porsche Cayenne"> </a>
-                    <a href="2026Collection/macan.html"> <img id="p6" src="gallery/p6.png" alt="2026 Porsche Macan"> </a>
-                </div>
-                <div class="hover-caption"></div>
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+    <div class="hero-image"></div>
+
+
+    <div class="hero-content">
+
+        <p class="eyebrow">
+            PORSCHE 2026
+        </p>
+
+
+        <h1>
+            THE<br>
+            <span>COLLECTION</span>
+        </h1>
+
+
+        <p class="hero-text">
+            Six machines. One philosophy.
+            Explore the latest expression of Porsche performance.
+        </p>
+
+
+        <a href="#collection"
+           class="neo-button">
+
+            Enter Collection
+
+            <span>→</span>
+
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= COLLECTION ================= -->
+
+<section id="collection"
+         class="showroom">
+
+
+    <div class="showroom-heading">
+
+        <p class="eyebrow">
+            2026 COLLECTION
+        </p>
+
+
+        <h2>
+            CHOOSE<br>
+            YOUR <span>PORSCHE.</span>
+        </h2>
+
+    </div>
+
+
+
+    <!-- ================= CAR GRID ================= -->
+
+    <div class="showroom-grid">
+
+
+        <!-- 911 -->
+
+        <a href="2026Collection/911.html"
+           class="car-card">
+
+            <img src="gallery/p1.jpeg"
+                 id="p1"
+                 alt="2026 Porsche 911">
+
+
+            <div class="car-info">
+
+                <span>
+                    01 / ICON
+                </span>
+
+                <h3>
+                    911
+                </h3>
+
+                <p>
+                    The timeless sports car.
+                </p>
+
             </div>
-            <button id="nxt-btn" class="overlay-button">&#10095;</button>
-        </div>
 
-        <audio id="p1-sound" src="sounds/p1.mp3" preload="auto"></audio>
-        <audio id="p2-sound" src="sounds/p2.mp3" preload="auto"></audio>
-        <audio id="p3-sound" src="sounds/p3.mp3" preload="auto"></audio>
-        <audio id="p4-sound" src="sounds/p4.mp3" preload="auto"></audio>
-        <audio id="p5-sound" src="sounds/p5.mp3" preload="auto"></audio>
-        <audio id="p6-sound" src="sounds/p6.mp3" preload="auto"></audio>
+        </a>
 
-        <div class="articles">
-            <h1 class="HeaderTitle">Classics Reimagined</h1>
-            <p class="parags"><i>where Speed meets Cornering</i></p>
-        </div>
-       
-        <script src="drawer"></script>
+
+
+        <!-- 718 -->
+
+        <a href="2026Collection/718.html"
+           class="car-card">
+
+            <img src="gallery/p2.png"
+                 id="p2"
+                 alt="2026 Porsche 718 Cayman">
+
+
+            <div class="car-info">
+
+                <span>
+                    02 / MID-ENGINE
+                </span>
+
+                <h3>
+                    718
+                </h3>
+
+                <p>
+                    Pure handling, pure connection.
+                </p>
+
+            </div>
+
+        </a>
+
+
+
+        <!-- TAYCAN -->
+
+        <a href="2026Collection/taycan.html"
+           class="car-card">
+
+            <img src="gallery/p3.png"
+                 id="p3"
+                 alt="2026 Porsche Taycan">
+
+
+            <div class="car-info">
+
+                <span>
+                    03 / ELECTRIC
+                </span>
+
+                <h3>
+                    TAYCAN
+                </h3>
+
+                <p>
+                    Electric performance evolved.
+                </p>
+
+            </div>
+
+        </a>
+
+
+
+        <!-- PANAMERA -->
+
+        <a href="2026Collection/panamera.html"
+           class="car-card">
+
+            <img src="gallery/p4.png"
+                 id="p4"
+                 alt="2026 Porsche Panamera">
+
+
+            <div class="car-info">
+
+                <span>
+                    04 / GRAND TOURER
+                </span>
+
+                <h3>
+                    PANAMERA
+                </h3>
+
+                <p>
+                    Performance without compromise.
+                </p>
+
+            </div>
+
+        </a>
+
+
+
+        <!-- CAYENNE -->
+
+        <a href="2026Collection/cayenne.html"
+           class="car-card">
+
+            <img src="gallery/p5.png"
+                 id="p5"
+                 alt="2026 Porsche Cayenne">
+
+
+            <div class="car-info">
+
+                <span>
+                    05 / SUV
+                </span>
+
+                <h3>
+                    CAYENNE
+                </h3>
+
+                <p>
+                    Performance meets versatility.
+                </p>
+
+            </div>
+
+        </a>
+
+
+
+        <!-- MACAN -->
+
+        <a href="2026Collection/macan.html"
+           class="car-card">
+
+            <img src="gallery/p6.png"
+                 id="p6"
+                 alt="2026 Porsche Macan">
+
+
+            <div class="car-info">
+
+                <span>
+                    06 / URBAN PERFORMANCE
+                </span>
+
+                <h3>
+                    MACAN
+                </h3>
+
+                <p>
+                    Compact. Athletic. Porsche.
+                </p>
+
+            </div>
+
+        </a>
+
+
     </div>
 
-    <div class="glass-container">
-        <div class="articles">
-            <h1 class="HeaderTitle">Another Section</h1>
-            <p class="parags"><i>Placeholder</i></p>
-        </div>
-    </div>
+</section>
+
+
+
+<!-- ================= END ================= -->
+
+<section class="showroom-end">
+
+    <p class="eyebrow">
+        PORSCHE
+    </p>
+
+
+    <h2>
+        WHICH ONE<br>
+        <span>IS YOURS?</span>
+    </h2>
+
+
+    <a href="index.html"
+       class="neo-button">
+
+        Back to Heritage
+
+        <span>←</span>
+
+    </a>
+
+</section>
+
+
+
+<!-- ================= AUDIO ================= -->
+
+<audio id="p1-sound"
+       src="sounds/p1.mp3"
+       preload="auto">
+</audio>
+
+
+<audio id="p2-sound"
+       src="sounds/p2.mp3"
+       preload="auto">
+</audio>
+
+
+<audio id="p3-sound"
+       src="sounds/p3.mp3"
+       preload="auto">
+</audio>
+
+
+<audio id="p4-sound"
+       src="sounds/p4.mp3"
+       preload="auto">
+</audio>
+
+
+<audio id="p5-sound"
+       src="sounds/p5.mp3"
+       preload="auto">
+</audio>
+
+
+<audio id="p6-sound"
+       src="sounds/p6.mp3"
+       preload="auto">
+</audio>
+
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script src="drawer.js"></script>
+
+
 </body>
+
 </html>
+
