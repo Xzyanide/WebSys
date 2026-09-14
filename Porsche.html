@@ -402,6 +402,23 @@
 <script src="drawer.js"></script>
 <script type="module" src="three-showroom.js"></script>
 
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.3.8/dist/lenis.min.js"></script>
+
+<script>
+const lenis = new Lenis({
+    duration: 1.2,
+    smoothWheel: true,
+    smoothTouch: false
+});
+
+function raf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+}
+
+requestAnimationFrame(raf);
+</script>
+
 </body>
 
 </html>
