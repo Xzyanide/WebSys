@@ -14,16 +14,25 @@ if (!showroom) {
 
 
 /* =========================
+   CANVAS SIZE
+========================= */
+
+const canvasWidth = 800;
+const canvasHeight = 500;
+
+
+/* =========================
    SCENE
 ========================= */
 
 const scene =
     new THREE.Scene();
 
+
 const camera =
     new THREE.PerspectiveCamera(
         45,
-        window.innerWidth / 500,
+        canvasWidth / canvasHeight,
         0.1,
         100
     );
@@ -42,40 +51,46 @@ camera.position.set(
 const renderer =
     new THREE.WebGLRenderer({
         alpha: true,
-        antialias: true
+        antialias: true,
+        powerPreference: "high-performance"
     });
 
+
 renderer.setPixelRatio(
-    Math.min(window.devicePixelRatio, 2)
+    Math.min(window.devicePixelRatio, 1.25)
 );
 
+
 renderer.setSize(
-    window.innerWidth,
-    500
+    canvasWidth,
+    canvasHeight
 );
+
+
 renderer.domElement.style.position =
     "absolute";
 
 renderer.domElement.style.left =
-    "0";
+    "50%";
 
 renderer.domElement.style.top =
     "0";
 
 renderer.domElement.style.transform =
-    "none";
+    "translateX(-50%)";
 
 renderer.domElement.style.width =
-    "100%";
+    canvasWidth + "px";
 
 renderer.domElement.style.height =
-    "500px";
+    canvasHeight + "px";
 
 renderer.domElement.style.zIndex =
     "1";
 
 renderer.domElement.style.pointerEvents =
     "none";
+
 
 showroom.appendChild(
     renderer.domElement
@@ -92,7 +107,9 @@ const ambientLight =
         2
     );
 
-scene.add(ambientLight);
+scene.add(
+    ambientLight
+);
 
 
 const keyLight =
@@ -107,7 +124,9 @@ keyLight.position.set(
     5
 );
 
-scene.add(keyLight);
+scene.add(
+    keyLight
+);
 
 
 const redLight =
@@ -123,7 +142,9 @@ redLight.position.set(
     4
 );
 
-scene.add(redLight);
+scene.add(
+    redLight
+);
 
 
 /* =========================
@@ -134,6 +155,7 @@ const loader =
     new GLTFLoader();
 
 let porsche = null;
+
 
 loader.load(
     "models/porsche.glb",
@@ -183,9 +205,16 @@ loader.load(
 let mouseX = 0;
 let mouseY = 0;
 
+let showroomVisible = false;
+
+
 document.addEventListener(
     "mousemove",
     event => {
+
+        if (!showroomVisible) {
+            return;
+        }
 
         mouseX =
             (event.clientX /
@@ -197,16 +226,49 @@ document.addEventListener(
     }
 );
 
+
 /* =========================
-   ANIMATION
+   SHOWROOM VISIBILITY
+========================= */
+
+const visibilityObserver =
+    new IntersectionObserver(
+        entries => {
+
+            entries.forEach(entry => {
+
+                showroomVisible =
+                    entry.isIntersecting;
+
+            });
+
+        },
+        {
+            threshold: 0.05
+        }
+    );
+
+
+visibilityObserver.observe(
+    showroom
+);
+
+
+/* =========================
+   SCROLL
 ========================= */
 
 let scrollRotation = 0;
 let scrollMovement = 0;
 
+
 window.addEventListener(
     "scroll",
     () => {
+
+        if (!showroomVisible) {
+            return;
+        }
 
         scrollRotation =
             window.scrollY * 0.0015;
@@ -214,53 +276,92 @@ window.addEventListener(
         scrollMovement =
             window.scrollY * 0.0008;
 
+    },
+    {
+        passive: true
     }
 );
 
 
-function animate() {
+/* =========================
+   ANIMATION
+========================= */
+
+let lastFrame = 0;
+
+
+function animate(time) {
 
     requestAnimationFrame(
         animate
     );
 
-    if (porsche) {
 
-        /* Mouse movement */
-
-        const targetRotation =
-            mouseX * 0.8 +
-            scrollRotation;
-
-        porsche.rotation.y +=
-            (
-                targetRotation -
-                porsche.rotation.y
-            ) * 0.03;
-
-        porsche.rotation.x +=
-            (
-                mouseY * 0.15 -
-                porsche.rotation.x
-            ) * 0.02;
-
-
-        /* Floating */
-
-        porsche.position.y =
-            -0.7 +
-            Math.sin(
-                Date.now() * 0.001
-            ) * 0.04;
-
-
-        /* Small scroll movement */
-
-        porsche.position.x =
-            Math.sin(
-                scrollMovement
-            ) * 0.35;
+    if (!showroomVisible || !porsche) {
+        return;
     }
+
+
+    /* =========================
+       FRAME LIMIT
+    ========================= */
+
+    if (
+        time - lastFrame < 33
+    ) {
+        return;
+    }
+
+    lastFrame = time;
+
+
+    /* =========================
+       MOUSE + SCROLL ROTATION
+    ========================= */
+
+    const targetRotation =
+        mouseX * 0.8 +
+        scrollRotation;
+
+
+    porsche.rotation.y +=
+        (
+            targetRotation -
+            porsche.rotation.y
+        ) * 0.03;
+
+
+    porsche.rotation.x +=
+        (
+            mouseY * 0.15 -
+            porsche.rotation.x
+        ) * 0.02;
+
+
+    /* =========================
+       FLOATING
+    ========================= */
+
+    porsche.position.y =
+        -0.7 +
+        Math.sin(
+            time * 0.001
+        ) * 0.04;
+
+
+    /* =========================
+       SCROLL MOVEMENT
+    ========================= */
+
+    porsche.position.x =
+        Math.sin(
+            scrollMovement
+        ) * 0.35;
+
+
+    /* =========================
+       RENDER
+    ========================= */
 
     renderer.render(
         scene,
@@ -268,7 +369,10 @@ function animate() {
     );
 }
 
-animate();
+
+requestAnimationFrame(
+    animate
+);
 
 
 /* =========================
@@ -279,14 +383,27 @@ window.addEventListener(
     "resize",
     () => {
 
+        const width =
+            Math.min(
+                canvasWidth,
+                window.innerWidth
+            );
+
+
         camera.aspect =
-            window.innerWidth / 500;
+            width / canvasHeight;
 
         camera.updateProjectionMatrix();
 
+
         renderer.setSize(
-            window.innerWidth,
-            500
+            width,
+            canvasHeight
         );
+
+
+        renderer.domElement.style.width =
+            width + "px";
+
     }
 );
