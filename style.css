@@ -142,18 +142,17 @@ h3 {
 .hero {
     height: 100vh;
     min-height: 650px;
-
     position: relative;
-
     display: flex;
     align-items: center;
-
     overflow: hidden;
+    isolation: isolate;
 }
 
 .hero-image {
     position: absolute;
     inset: 0;
+    z-index: 0;
 
     background:
         linear-gradient(
@@ -1375,4 +1374,23 @@ footer {
 
 .gemballa-image {
     background-position: center;
+}
+
+/* =========================
+   3D SHOWROOM
+========================= */
+
+.showroom {
+    position: relative;
+    overflow: hidden;
+}
+
+.showroom-heading,
+.showroom-grid {
+    position: relative;
+    z-index: 2;
+}
+
+.showroom > canvas {
+    z-index: 1;
 }
