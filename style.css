@@ -877,3 +877,502 @@ footer {
     }
 
 }
+
+/* =========================
+   CONTACT INFORMATION
+========================= */
+
+.contact-info {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 50px;
+
+    margin-top: 40px;
+
+    flex-wrap: wrap;
+}
+
+.contact-item {
+    min-width: 160px;
+}
+
+.contact-item span {
+    display: block;
+
+    color: #e30613;
+
+    font-size: 10px;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 10px;
+}
+
+.contact-item p {
+    margin: 0 !important;
+
+    color: #bbb !important;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+}
+
+
+@media (max-width: 800px) {
+
+    .contact-info {
+        flex-direction: column;
+
+        gap: 25px;
+
+        align-items: center;
+    }
+
+}
+
+/* =========================
+   PORSCHE CULTURE
+========================= */
+
+.culture-hero {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(10,10,10,0.95),
+            rgba(10,10,10,0.55),
+            rgba(10,10,10,0.25)
+        ),
+        url("culture/rwb.webp");
+
+    background-size: cover;
+
+    background-position: center;
+
+}
+
+
+.culture-hero-content {
+
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 700px;
+
+    margin-left: 9%;
+
+    padding-top: 75px;
+
+}
+
+
+.culture-hero h1 {
+
+    font-size:
+        clamp(60px, 9vw, 125px);
+
+    font-weight: 900;
+
+    line-height: 0.85;
+
+    letter-spacing: -5px;
+
+}
+
+
+.culture-hero h1 span {
+
+    color: #e30613;
+
+}
+
+
+.culture-hero-content > p:not(.eyebrow) {
+
+    max-width: 550px;
+
+    margin-top: 30px;
+
+    color: #bbb;
+
+    line-height: 1.7;
+
+}
+
+
+/* =========================
+   CULTURE INTRO
+========================= */
+
+.culture-intro {
+
+    min-height: 70vh;
+
+    padding: 130px 9%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+}
+
+
+.culture-intro h2 {
+
+    font-size:
+        clamp(55px, 8vw, 105px);
+
+    line-height: 0.9;
+
+}
+
+
+.culture-intro h2 span {
+
+    color: #e30613;
+
+}
+
+
+.culture-intro > p:last-child {
+
+    max-width: 600px;
+
+    margin-top: 35px;
+
+    color: #999;
+
+    line-height: 1.8;
+
+    font-size: 16px;
+
+}
+
+
+/* =========================
+   CULTURE FEATURES
+========================= */
+
+.culture-feature {
+
+    min-height: 80vh;
+
+    display: flex;
+
+    overflow: hidden;
+
+}
+
+
+.culture-feature.reverse {
+
+    flex-direction: row-reverse;
+
+}
+
+
+.culture-feature-image {
+
+    width: 55%;
+
+    min-height: 650px;
+
+    background-size: cover;
+
+    background-position: center;
+
+    transition: transform 1s ease;
+
+}
+
+
+.culture-feature:hover .culture-feature-image {
+
+    transform: scale(1.04);
+
+}
+
+
+.rwb-image {
+
+    background-image:
+        linear-gradient(
+            90deg,
+            rgba(25,27,30,0.1),
+            rgba(25,27,30,0.15)
+        ),
+        url("culture/rwb.webp");
+
+}
+
+
+.singer-image {
+
+    background-image:
+        linear-gradient(
+            90deg,
+            rgba(25,27,30,0.1),
+            rgba(25,27,30,0.15)
+        ),
+        url("culture/singer.webp");
+
+}
+
+
+.weissach-image {
+
+    background-image:
+        linear-gradient(
+            90deg,
+            rgba(25,27,30,0.1),
+            rgba(25,27,30,0.15)
+        ),
+        url("culture/weissach.jpg");
+
+}
+
+
+.techart-image {
+
+    background-image:
+        linear-gradient(
+            90deg,
+            rgba(25,27,30,0.1),
+            rgba(25,27,30,0.15)
+        ),
+        url("culture/techart.webp");
+
+}
+
+
+.gemballa-image {
+
+    background-image:
+        linear-gradient(
+            90deg,
+            rgba(25,27,30,0.1),
+            rgba(25,27,30,0.15)
+        ),
+        url("culture/gemballa.webp");
+
+}
+
+
+.culture-feature-content {
+
+    width: 45%;
+
+    padding: 8% 7%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    background: #181a1d;
+
+}
+
+
+.culture-feature-content h2 {
+
+    font-size:
+        clamp(50px, 6vw, 90px);
+
+    line-height: 0.9;
+
+    max-width: 100%;
+
+}
+
+
+.culture-feature-content h3 {
+
+    margin-top: 15px;
+
+    color: #aaa;
+
+    font-size: 14px;
+
+    letter-spacing: 3px;
+
+}
+
+
+.culture-feature-content p:not(.eyebrow) {
+
+    max-width: 500px;
+
+    margin-top: 25px;
+
+    color: #999;
+
+    line-height: 1.7;
+
+}
+
+
+/* =========================
+   CULTURE END
+========================= */
+
+.culture-end {
+
+    min-height: 80vh;
+
+    padding: 120px 7%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+}
+
+
+.culture-end h2 {
+
+    font-size:
+        clamp(55px, 8vw, 110px);
+
+    line-height: 0.9;
+
+}
+
+
+.culture-end h2 span {
+
+    color: #e30613;
+
+}
+
+
+.culture-end > p:not(.eyebrow) {
+
+    max-width: 600px;
+
+    margin-top: 30px;
+
+    color: #999;
+
+    line-height: 1.7;
+
+}
+
+
+.culture-end > div {
+
+    display: flex;
+
+    gap: 20px;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+}
+
+
+/* =========================
+   CULTURE MOBILE
+========================= */
+
+@media (max-width: 800px) {
+
+    .culture-hero-content {
+
+        margin:
+            0 8%;
+
+    }
+
+
+    .culture-hero h1 {
+
+        font-size: 60px;
+
+        letter-spacing: -3px;
+
+    }
+
+
+    .culture-feature,
+    .culture-feature.reverse {
+
+        flex-direction: column;
+
+    }
+
+
+    .culture-feature-image {
+
+        width: 100%;
+
+        min-height: 400px;
+
+    }
+
+
+    .culture-feature-content {
+
+        width: 100%;
+
+        min-height: 500px;
+
+        padding: 80px 8%;
+
+    }
+
+
+    .culture-end > div {
+
+        flex-direction: column;
+
+        align-items: center;
+
+    }
+
+}
+
+/* =========================
+   CULTURE TEXT FIX
+========================= */
+
+.culture-feature-content {
+    min-width: 0;
+    overflow: hidden;
+}
+
+.culture-feature-content h2 {
+    font-size: clamp(45px, 5.5vw, 85px);
+    line-height: 0.9;
+    white-space: nowrap;
+}
+
+.gemballa-image {
+    background-position: center;
+}

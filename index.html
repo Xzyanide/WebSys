@@ -13,15 +13,42 @@
 <body>
 
 <nav class="navbar">
-    <a href="index.html" class="logo">PORSCHE</a>
+
+    <a href="index.html" class="logo">
+        PORSCHE
+    </a>
 
     <div class="nav-links">
-        <a href="index.html" class="active">Home</a>
-        <a href="#heritage">Heritage</a>
-        <a href="Porsche.html">Showroom</a>
-        <a href="#contact">Contact</a>
+
+        <div class="nav-links">
+
+    <a href="index.html">
+        Home
+    </a>
+
+    <a href="#heritage">
+        Heritage
+    </a>
+
+    <a href="Culture.html">
+        Culture
+    </a>
+
+    <a href="Porsche.html">
+        Showroom
+    </a>
+
+    <a href="#contact">
+        Contact
+    </a>
+
+</div>
+
     </div>
+
 </nav>
+
+
 
 
 <section class="hero">
@@ -191,18 +218,65 @@
 
     <div class="contact-box">
 
-        <p class="eyebrow">THE JOURNEY CONTINUES</p>
-
-        <h2>EXPERIENCE<br><span>PORSCHE.</span></h2>
-
-        <p>
-            Explore the 2026 collection and discover the machines
-            carrying Porsche into the future.
+        <p class="eyebrow">
+            GET IN TOUCH
         </p>
 
-        <a href="Porsche.html" class="neo-button">
+        <h2>
+            EXPERIENCE<br>
+            <span>PORSCHE.</span>
+        </h2>
+
+        <p>
+            Have questions about Porsche models, performance,
+            or the latest collection? Get in touch with us.
+        </p>
+
+
+        <div class="contact-info">
+
+            <div class="contact-item">
+
+                <span>EMAIL</span>
+
+                <p>
+                    porsche@example.com
+                </p>
+
+            </div>
+
+
+            <div class="contact-item">
+
+                <span>PHONE</span>
+
+                <p>
+                    +63 900 123 4567
+                </p>
+
+            </div>
+
+
+            <div class="contact-item">
+
+                <span>LOCATION</span>
+
+                <p>
+                    Taguig City, Philippines
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <a href="Porsche.html"
+           class="neo-button">
+
             View 2026 Collection
+
             <span>→</span>
+
         </a>
 
     </div>
@@ -210,10 +284,49 @@
 </section>
 
 
+
 <footer>
     <div class="footer-logo">PORSCHE</div>
     <p>Heritage • Performance • Innovation</p>
 </footer>
 
+<script>
+
+const sections = document.querySelectorAll("section[id]");
+const navLinks = document.querySelectorAll(".nav-links a");
+
+window.addEventListener("scroll", () => {
+
+    let current = "";
+
+    sections.forEach(section => {
+
+        const sectionTop = section.offsetTop - 150;
+        const sectionHeight = section.offsetHeight;
+
+        if (
+            window.scrollY >= sectionTop &&
+            window.scrollY < sectionTop + sectionHeight
+        ) {
+            current = section.getAttribute("id");
+        }
+
+    });
+
+    navLinks.forEach(link => {
+
+        link.classList.remove("active");
+
+        const href = link.getAttribute("href");
+
+        if (href === "#" + current) {
+            link.classList.add("active");
+        }
+
+    });
+
+});
+
+</script>
 </body>
 </html>
