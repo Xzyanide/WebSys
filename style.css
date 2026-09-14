@@ -78,9 +78,12 @@ a {
 
 .eyebrow {
     color: #e30613;
+
     font-size: 12px;
     font-weight: bold;
+
     letter-spacing: 4px;
+
     margin-bottom: 15px;
 }
 
@@ -93,10 +96,10 @@ h3 {
 .neo-button {
     display: inline-flex;
     align-items: center;
+
     gap: 25px;
 
     padding: 17px 25px;
-
     margin-top: 30px;
 
     border-radius: 10px;
@@ -138,13 +141,15 @@ h3 {
 /* =========================
    HERO
 ========================= */
-
 .hero {
     height: 100vh;
     min-height: 650px;
+
     position: relative;
+
     display: flex;
     align-items: center;
+
     overflow: hidden;
     isolation: isolate;
 }
@@ -152,6 +157,7 @@ h3 {
 .hero-image {
     position: absolute;
     inset: 0;
+
     z-index: 0;
 
     background:
@@ -172,6 +178,7 @@ h3 {
 }
 
 @keyframes heroZoom {
+
     from {
         transform: scale(1.15);
     }
@@ -179,12 +186,14 @@ h3 {
     to {
         transform: scale(1.05);
     }
+
 }
 
 .hero::after {
     content: "";
 
     position: absolute;
+
     right: 0;
     bottom: 0;
 
@@ -199,9 +208,11 @@ h3 {
 }
 
 @keyframes speedLine {
+
     to {
         transform: translateX(0);
     }
+
 }
 
 .hero-content {
@@ -217,6 +228,7 @@ h3 {
 }
 
 @keyframes heroText {
+
     from {
         opacity: 0;
         transform: translateX(-70px);
@@ -226,11 +238,14 @@ h3 {
         opacity: 1;
         transform: translateX(0);
     }
+
 }
 
 .hero h1 {
     font-size: clamp(60px, 8vw, 125px);
+
     font-weight: 900;
+
     letter-spacing: -5px;
 }
 
@@ -257,6 +272,7 @@ h3 {
 
     display: flex;
     align-items: center;
+
     gap: 12px;
 
     color: #777;
@@ -274,6 +290,104 @@ h3 {
     background: #e30613;
 }
 
+/* =========================
+   METALLIC PORSCHE TEXT
+========================= */
+
+.hero h1,
+.logo {
+    color: transparent;
+
+    background:
+        linear-gradient(
+            115deg,
+            #555 0%,
+            #aaa 18%,
+            #f5f5f5 30%,
+            #555 42%,
+            #1a1a1a 50%,
+            #999 62%,
+            #eee 74%,
+            #444 88%,
+            #aaa 100%
+        );
+
+    background-size: 250% 100%;
+    background-position: 50% 50%;
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    animation: metallicShine 10s linear infinite;
+
+    text-shadow:
+        0 0 18px rgba(255,255,255,0.06),
+        0 0 35px rgba(255,255,255,0.04);
+}
+
+
+/* Navbar logo */
+
+.logo {
+    font-size: 22px;
+    font-weight: 900;
+    letter-spacing: 4px;
+
+    animation-duration: 12s;
+}
+
+
+/* Hero red accent */
+
+.hero h1 span {
+    color: transparent;
+
+    background:
+        linear-gradient(
+            115deg,
+            #5a0000 0%,
+            #e30613 25%,
+            #ff4a4a 40%,
+            #8b0000 55%,
+            #e30613 72%,
+            #ff6666 85%,
+            #720000 100%
+        );
+
+    background-size: 250% 100%;
+    background-position: 50% 50%;
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    animation: metallicRedShine 8s linear infinite;
+}
+
+
+@keyframes metallicShine {
+
+    0% {
+        background-position: 0% 50%;
+    }
+
+    100% {
+        background-position: 250% 50%;
+    }
+
+}
+
+
+@keyframes metallicRedShine {
+
+    0% {
+        background-position: 0% 50%;
+    }
+
+    100% {
+        background-position: 250% 50%;
+    }
+
+}
 
 /* =========================
    HERITAGE
@@ -319,6 +433,8 @@ h3 {
 }
 
 .heritage-card {
+    position: relative;
+
     flex: 0 0 330px;
 
     min-height: 350px;
@@ -334,8 +450,6 @@ h3 {
         -7px -7px 18px rgba(255,255,255,0.035);
 
     scroll-snap-align: start;
-
-    position: relative;
 
     overflow: hidden;
 
@@ -402,7 +516,7 @@ h3 {
 
 
 /* =========================
-   CULTURE
+   CULTURE PREVIEW
 ========================= */
 
 .culture-section {
@@ -533,6 +647,7 @@ h3 {
 
 .preview-card:hover img {
     transform: scale(1.1);
+
     filter: brightness(0.75);
 }
 
@@ -547,6 +662,7 @@ h3 {
 
 .preview-card span {
     color: #e30613;
+
     font-size: 11px;
 }
 
@@ -605,6 +721,46 @@ h3 {
     line-height: 1.7;
 }
 
+.contact-info {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 50px;
+
+    margin-top: 40px;
+
+    flex-wrap: wrap;
+}
+
+.contact-item {
+    min-width: 160px;
+}
+
+.contact-item span {
+    display: block;
+
+    color: #e30613;
+
+    font-size: 10px;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 10px;
+}
+
+.contact-item p {
+    margin: 0 !important;
+
+    color: #bbb !important;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+}
+
 
 /* =========================
    FOOTER
@@ -626,68 +782,10 @@ footer {
 
     font-size: 20px;
     font-weight: bold;
+
     letter-spacing: 4px;
 }
 
-
-/* =========================
-   MOBILE
-========================= */
-
-@media (max-width: 800px) {
-
-    .navbar {
-        padding: 0 5%;
-    }
-
-    .nav-links {
-        gap: 12px;
-    }
-
-    .nav-links a {
-        font-size: 10px;
-    }
-
-    .hero-content {
-        width: auto;
-        margin: 0 8%;
-    }
-
-    .hero h1 {
-        font-size: 60px;
-        letter-spacing: -3px;
-    }
-
-    .culture-section {
-        flex-direction: column;
-    }
-
-    .culture-content,
-    .culture-image {
-        width: 100%;
-    }
-
-    .culture-content {
-        min-height: 60vh;
-    }
-
-    .culture-image {
-        height: 45vh;
-    }
-
-    .preview-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .preview-card {
-        height: 350px;
-    }
-
-    footer {
-        flex-direction: column;
-        gap: 15px;
-    }
-}
 
 /* =========================
    SHOWROOM
@@ -695,15 +793,25 @@ footer {
 
 .showroom {
     min-height: 100vh;
+
     padding: 130px 7%;
+
+    position: relative;
+
+    overflow: hidden;
 }
 
 .showroom-heading {
     margin-bottom: 60px;
+
+    position: relative;
+
+    z-index: 2;
 }
 
 .showroom-heading h2 {
     font-size: clamp(45px, 7vw, 90px);
+
     font-weight: 900;
 }
 
@@ -713,8 +821,18 @@ footer {
 
 .showroom-grid {
     display: grid;
+
     grid-template-columns: repeat(3, 1fr);
+
     gap: 30px;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+.showroom > canvas {
+    z-index: 1;
 }
 
 .car-card {
@@ -728,15 +846,19 @@ footer {
 
     background: #1b1d20;
 
+    border: 1px solid rgba(227, 6, 19, 0.08);
+
     box-shadow:
         10px 10px 25px rgba(0,0,0,0.7),
-        -7px -7px 18px rgba(255,255,255,0.035);
+        -7px -7px 18px rgba(255,255,255,0.035),
+        0 0 0 rgba(227, 6, 19, 0);
 
     transform-style: preserve-3d;
 
     transition:
         transform 0.35s ease,
-        box-shadow 0.35s ease;
+        box-shadow 0.35s ease,
+        border-color 0.35s ease;
 }
 
 .car-card::after {
@@ -759,6 +881,15 @@ footer {
     transition: transform 0.7s ease;
 
     pointer-events: none;
+}
+
+.car-card:hover {
+    border-color: rgba(227, 6, 19, 0.65);
+
+    box-shadow:
+        10px 10px 25px rgba(0,0,0,0.7),
+        -7px -7px 18px rgba(255,255,255,0.035),
+        0 0 25px rgba(227, 6, 19, 0.22);
 }
 
 .car-card:hover::after {
@@ -831,11 +962,9 @@ footer {
     min-height: 70vh;
 
     display: flex;
-
     flex-direction: column;
 
     justify-content: center;
-
     align-items: center;
 
     text-align: center;
@@ -853,97 +982,13 @@ footer {
 
 
 /* =========================
-   SHOWROOM MOBILE
-========================= */
-
-@media (max-width: 1000px) {
-
-    .showroom-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-}
-
-
-@media (max-width: 800px) {
-
-    .showroom-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .car-card {
-        height: 400px;
-    }
-
-}
-
-/* =========================
-   CONTACT INFORMATION
-========================= */
-
-.contact-info {
-    display: flex;
-
-    justify-content: center;
-
-    gap: 50px;
-
-    margin-top: 40px;
-
-    flex-wrap: wrap;
-}
-
-.contact-item {
-    min-width: 160px;
-}
-
-.contact-item span {
-    display: block;
-
-    color: #e30613;
-
-    font-size: 10px;
-
-    font-weight: bold;
-
-    letter-spacing: 2px;
-
-    margin-bottom: 10px;
-}
-
-.contact-item p {
-    margin: 0 !important;
-
-    color: #bbb !important;
-
-    font-size: 14px;
-
-    line-height: 1.5;
-}
-
-
-@media (max-width: 800px) {
-
-    .contact-info {
-        flex-direction: column;
-
-        gap: 25px;
-
-        align-items: center;
-    }
-
-}
-
-/* =========================
-   PORSCHE CULTURE
+   PORSCHE CULTURE PAGE
 ========================= */
 
 .culture-hero {
-
     min-height: 100vh;
 
     display: flex;
-
     align-items: center;
 
     position: relative;
@@ -962,12 +1007,9 @@ footer {
     background-size: cover;
 
     background-position: center;
-
 }
 
-
 .culture-hero-content {
-
     position: relative;
 
     z-index: 2;
@@ -977,33 +1019,23 @@ footer {
     margin-left: 9%;
 
     padding-top: 75px;
-
 }
 
-
 .culture-hero h1 {
-
-    font-size:
-        clamp(60px, 9vw, 125px);
+    font-size: clamp(60px, 9vw, 125px);
 
     font-weight: 900;
 
     line-height: 0.85;
 
     letter-spacing: -5px;
-
 }
-
 
 .culture-hero h1 span {
-
     color: #e30613;
-
 }
 
-
 .culture-hero-content > p:not(.eyebrow) {
-
     max-width: 550px;
 
     margin-top: 30px;
@@ -1011,7 +1043,6 @@ footer {
     color: #bbb;
 
     line-height: 1.7;
-
 }
 
 
@@ -1020,39 +1051,27 @@ footer {
 ========================= */
 
 .culture-intro {
-
     min-height: 70vh;
 
     padding: 130px 9%;
 
     display: flex;
-
     flex-direction: column;
 
     justify-content: center;
-
 }
-
 
 .culture-intro h2 {
-
-    font-size:
-        clamp(55px, 8vw, 105px);
+    font-size: clamp(55px, 8vw, 105px);
 
     line-height: 0.9;
-
 }
-
 
 .culture-intro h2 span {
-
     color: #e30613;
-
 }
 
-
 .culture-intro > p:last-child {
-
     max-width: 600px;
 
     margin-top: 35px;
@@ -1062,7 +1081,6 @@ footer {
     line-height: 1.8;
 
     font-size: 16px;
-
 }
 
 
@@ -1071,47 +1089,37 @@ footer {
 ========================= */
 
 .culture-feature {
-
     min-height: 80vh;
 
     display: flex;
 
     overflow: hidden;
 
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
 }
-
 
 .culture-feature.reverse {
-
     flex-direction: row-reverse;
-
 }
 
-
 .culture-feature-image {
-
     width: 55%;
 
     min-height: 650px;
 
     background-size: cover;
-
     background-position: center;
 
     transition: transform 1s ease;
-
 }
-
 
 .culture-feature:hover .culture-feature-image {
-
     transform: scale(1.04);
-
 }
 
-
 .rwb-image {
-
     background-image:
         linear-gradient(
             90deg,
@@ -1119,12 +1127,9 @@ footer {
             rgba(25,27,30,0.15)
         ),
         url("culture/rwb.webp");
-
 }
 
-
 .singer-image {
-
     background-image:
         linear-gradient(
             90deg,
@@ -1132,12 +1137,9 @@ footer {
             rgba(25,27,30,0.15)
         ),
         url("culture/singer.webp");
-
 }
 
-
 .weissach-image {
-
     background-image:
         linear-gradient(
             90deg,
@@ -1145,12 +1147,9 @@ footer {
             rgba(25,27,30,0.15)
         ),
         url("culture/weissach.jpg");
-
 }
 
-
 .techart-image {
-
     background-image:
         linear-gradient(
             90deg,
@@ -1158,12 +1157,9 @@ footer {
             rgba(25,27,30,0.15)
         ),
         url("culture/techart.webp");
-
 }
 
-
 .gemballa-image {
-
     background-image:
         linear-gradient(
             90deg,
@@ -1171,41 +1167,40 @@ footer {
             rgba(25,27,30,0.15)
         ),
         url("culture/gemballa.webp");
-
 }
 
+.gemballa-image {
+    background-position: center;
+}
 
 .culture-feature-content {
-
     width: 45%;
+
+    min-width: 0;
+    min-height: 0;
 
     padding: 8% 7%;
 
     display: flex;
-
     flex-direction: column;
-
     justify-content: center;
 
     background: #181a1d;
 
+    overflow: hidden;
 }
 
-
 .culture-feature-content h2 {
-
-    font-size:
-        clamp(50px, 6vw, 90px);
+    font-size: clamp(45px, 5.5vw, 85px);
 
     line-height: 0.9;
 
     max-width: 100%;
 
+    white-space: nowrap;
 }
 
-
 .culture-feature-content h3 {
-
     margin-top: 15px;
 
     color: #aaa;
@@ -1213,12 +1208,9 @@ footer {
     font-size: 14px;
 
     letter-spacing: 3px;
-
 }
 
-
 .culture-feature-content p:not(.eyebrow) {
-
     max-width: 500px;
 
     margin-top: 25px;
@@ -1226,7 +1218,22 @@ footer {
     color: #999;
 
     line-height: 1.7;
+}
 
+.culture-feature:nth-child(2) {
+    transition-delay: 0.1s;
+}
+
+.culture-feature:nth-child(3) {
+    transition-delay: 0.2s;
+}
+
+.culture-feature:nth-child(4) {
+    transition-delay: 0.3s;
+}
+
+.culture-feature:nth-child(5) {
+    transition-delay: 0.4s;
 }
 
 
@@ -1235,43 +1242,30 @@ footer {
 ========================= */
 
 .culture-end {
-
     min-height: 80vh;
 
     padding: 120px 7%;
 
     display: flex;
-
     flex-direction: column;
 
     align-items: center;
-
     justify-content: center;
 
     text-align: center;
-
 }
-
 
 .culture-end h2 {
-
-    font-size:
-        clamp(55px, 8vw, 110px);
+    font-size: clamp(55px, 8vw, 110px);
 
     line-height: 0.9;
-
 }
-
 
 .culture-end h2 span {
-
     color: #e30613;
-
 }
 
-
 .culture-end > p:not(.eyebrow) {
-
     max-width: 600px;
 
     margin-top: 30px;
@@ -1279,12 +1273,9 @@ footer {
     color: #999;
 
     line-height: 1.7;
-
 }
 
-
 .culture-end > div {
-
     display: flex;
 
     gap: 20px;
@@ -1292,116 +1283,18 @@ footer {
     flex-wrap: wrap;
 
     justify-content: center;
-
 }
 
 
 /* =========================
-   CULTURE MOBILE
-========================= */
-
-@media (max-width: 800px) {
-
-    .culture-hero-content {
-
-        margin:
-            0 8%;
-
-    }
-
-
-    .culture-hero h1 {
-
-        font-size: 60px;
-
-        letter-spacing: -3px;
-
-    }
-
-
-    .culture-feature,
-    .culture-feature.reverse {
-
-        flex-direction: column;
-
-    }
-
-
-    .culture-feature-image {
-
-        width: 100%;
-
-        min-height: 400px;
-
-    }
-
-
-    .culture-feature-content {
-
-        width: 100%;
-
-        min-height: 500px;
-
-        padding: 80px 8%;
-
-    }
-
-
-    .culture-end > div {
-
-        flex-direction: column;
-
-        align-items: center;
-
-    }
-
-}
-
-/* =========================
-   CULTURE TEXT FIX
-========================= */
-
-.culture-feature-content {
-    min-width: 0;
-    overflow: hidden;
-}
-
-.culture-feature-content h2 {
-    font-size: clamp(45px, 5.5vw, 85px);
-    line-height: 0.9;
-    white-space: nowrap;
-}
-
-.gemballa-image {
-    background-position: center;
-}
-
-/* =========================
-   3D SHOWROOM
-========================= */
-
-.showroom {
-    position: relative;
-    overflow: hidden;
-}
-
-.showroom-heading,
-.showroom-grid {
-    position: relative;
-    z-index: 2;
-}
-
-.showroom > canvas {
-    z-index: 1;
-}
-
-/* ================================
    SCROLL REVEAL
-================================ */
+========================= */
 
 .reveal {
     opacity: 0;
+
     transform: translateY(60px);
+
     transition:
         opacity 0.9s ease,
         transform 0.9s ease;
@@ -1409,12 +1302,15 @@ footer {
 
 .reveal.show {
     opacity: 1;
+
     transform: translateY(0);
 }
 
 .reveal-left {
     opacity: 0;
+
     transform: translateX(-70px);
+
     transition:
         opacity 0.9s ease,
         transform 0.9s ease;
@@ -1422,12 +1318,15 @@ footer {
 
 .reveal-left.show {
     opacity: 1;
+
     transform: translateX(0);
 }
 
 .reveal-right {
     opacity: 0;
+
     transform: translateX(70px);
+
     transition:
         opacity 0.9s ease,
         transform 0.9s ease;
@@ -1435,8 +1334,14 @@ footer {
 
 .reveal-right.show {
     opacity: 1;
+
     transform: translateX(0);
 }
+
+
+/* =========================
+   SHOWROOM CARD STAGGER
+========================= */
 
 .car-card:nth-child(1) {
     transition-delay: 0.05s;
@@ -1462,24 +1367,151 @@ footer {
     transition-delay: 0.55s;
 }
 
-.culture-feature {
-    transition:
-        opacity 1s ease,
-        transform 1s ease;
+
+/* ================================
+   REACT BITS STYLE GRAIN TEXTURE
+================================ */
+
+body::before {
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 9999;
+
+    opacity: 0.055;
+
+    background-image:
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='.65'/%3E%3C/svg%3E");
+
+    background-size: 180px 180px;
+
+    mix-blend-mode: soft-light;
 }
 
-.culture-feature:nth-child(2) {
-    transition-delay: 0.1s;
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 1000px) {
+
+    .showroom-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
 }
 
-.culture-feature:nth-child(3) {
-    transition-delay: 0.2s;
-}
+@media (max-width: 800px) {
 
-.culture-feature:nth-child(4) {
-    transition-delay: 0.3s;
-}
+    .navbar {
+        padding: 0 5%;
+    }
 
-.culture-feature:nth-child(5) {
-    transition-delay: 0.4s;
+    .nav-links {
+        gap: 12px;
+    }
+
+    .nav-links a {
+        font-size: 10px;
+    }
+
+    .hero-content {
+        width: auto;
+
+        margin: 0 8%;
+    }
+
+    .hero h1 {
+        font-size: 60px;
+
+        letter-spacing: -3px;
+    }
+
+    .culture-section {
+        flex-direction: column;
+    }
+
+    .culture-content,
+    .culture-image {
+        width: 100%;
+    }
+
+    .culture-content {
+        min-height: 60vh;
+    }
+
+    .culture-image {
+        height: 45vh;
+    }
+
+    .preview-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .preview-card {
+        height: 350px;
+    }
+
+    .showroom-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .car-card {
+        height: 400px;
+    }
+
+    .contact-info {
+        flex-direction: column;
+
+        gap: 25px;
+
+        align-items: center;
+    }
+
+    .culture-hero-content {
+        margin: 0 8%;
+    }
+
+    .culture-hero h1 {
+        font-size: 60px;
+
+        letter-spacing: -3px;
+    }
+
+    .culture-feature,
+    .culture-feature.reverse {
+        flex-direction: column;
+    }
+
+    .culture-feature-image {
+        width: 100%;
+
+        min-height: 400px;
+    }
+
+    .culture-feature-content {
+        width: 100%;
+
+        min-height: 500px;
+
+        padding: 80px 8%;
+    }
+
+    .culture-end > div {
+        flex-direction: column;
+
+        align-items: center;
+    }
+
+    footer {
+        flex-direction: column;
+
+        gap: 15px;
+    }
+
 }
